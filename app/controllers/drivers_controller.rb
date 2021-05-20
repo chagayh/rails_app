@@ -15,6 +15,15 @@ class DriversController < ApplicationController
     @driver = Driver.new(driver_params)
 
     if @driver.save
+
+      ActionCable.server.broadcast(
+        "list_update_channel",
+        {
+          id: @driver.id,
+          title: @driver.name
+        }
+      )
+
       redirect_to @driver
     else
       render :new

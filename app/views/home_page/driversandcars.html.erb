@@ -1,6 +1,6 @@
 <% console %>
 
-<h1> Search Car </h1>
+<h1> Search Car or Driver </h1>
 
 <%= form_tag '/driversandcars/car/:id', :method => 'get' do %>
     <%= select_tag :car_id, options_for_select(@cars.map{|car| [car.title, car.id]}) %>

@@ -1,8 +1,12 @@
 <% console %>
-<h1>Cars List</h1>
+<h1>Drivers List</h1>
 
-<% @drivers.each do |driver| %>
-    <p value="title"> <%= driver.id %> <%=driver.name %> </p>
-<% end %>
+<div id="feed">
+
+    <% @drivers.each do |driver| %>
+        <p value="title"> <%= driver.id %> <%=driver.name %> </p>
+    <% end %>
+    
+</div>
 
 <%= button_to "Back To Home Page", root_path, :method => "get"%>

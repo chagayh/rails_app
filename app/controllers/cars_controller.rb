@@ -16,7 +16,15 @@ class CarsController < ApplicationController
     @car = Car.new(car_params)
     
     if @car.save
+      ActionCable.server.broadcast(
+        "list_update_channel",
+        {
+          id: @car.id,
+          title: @car.title
+        }
+      )
       redirect_to @car
+
     else
       render :new
     end
