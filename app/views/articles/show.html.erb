@@ -1,0 +1,10 @@
+<h1><%= @article.title %></h1>
+
+<p><%= @article.body %></p>
+
+<div>
+    <% if @article.image.attached? %>
+        <%= image_tag @article.image, style: "width: 200px; display: block" %>
+    <% end %>
+
+<%= button_to "Back To Home Page", root_path, :method => "get"%>

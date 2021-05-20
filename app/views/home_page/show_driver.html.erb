@@ -1,0 +1,38 @@
+<% console %>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;      
+  text-align: left;
+  padding: 8px;
+}
+</style>
+
+<% if !@driver.cars.empty? %>
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Created At</th>
+        </tr>
+        <% @driver.cars.each do |car| %>
+            <tr>
+                <td> <%= car.id %> </td>
+                <td> <%= car.title %> </td>
+                <td> <%= car.created_at %> </td>
+            </tr>
+        <% end %>
+    </table>
+    
+<% else %>
+
+    <h3> Car '<%= @driver.name %>' has no drivers </h3>
+
+<% end %>

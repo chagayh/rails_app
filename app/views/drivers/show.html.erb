@@ -1,0 +1,47 @@
+<% console %>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  text-align: left;
+  padding: 8px;
+}
+</style>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Image</th>
+        <th>Cars</th>
+    </tr>
+
+    <td> <%= @driver.name %> </td>
+    <td> <%= @driver.email %> </td>
+    <td> 
+      <% if @driver.image.attached? %>
+        <%= image_tag @driver.image, style: "width: 200px; display: block" %>
+      <% else %>
+        no image to display
+      <% end %>
+    </td>
+    <td> 
+      <% if !@driver.cars.empty? %>
+        <% @driver.cars.each do |car| %>
+          <%= car.title %>
+        <% end %>
+      <% else %>
+        no cars added
+      <% end %>
+    </td>
+</table>
+
+<br>
+<br>
+
+<%= button_to "Back To Home Page", root_path, :method => "get"%>

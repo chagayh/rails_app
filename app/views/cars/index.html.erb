@@ -1,0 +1,8 @@
+<% console %>
+<h1>Cars List</h1>
+
+<% @cars.each do |car| %>
+    <p> <%= car.id %>. <%= car.title %> </p>
+<% end %>
+
+<%= button_to "Back To Home Page", root_path, :method => "get"%>

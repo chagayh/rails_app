@@ -1,0 +1,13 @@
+<% console %>
+
+<h1> Search Car </h1>
+
+<%= form_tag '/driversandcars/car/:id', :method => 'get' do %>
+    <%= select_tag :car_id, options_for_select(@cars.map{|car| [car.title, car.id]}) %>
+    <input type="submit" value="show car">
+<% end %>
+
+<%= form_tag '/driversandcars/driver/:id', :method => 'get' do %>
+    <%= select_tag :driver_id, options_for_select(@drivers.map{|driver| [driver.name, driver.id]})  %>
+    <input type="submit" value="show driver">
+<% end %>

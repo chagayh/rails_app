@@ -1,0 +1,63 @@
+<h1>New Car</h1>
+
+<%= form_with model: @car do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.label :car_type %><br>
+    <%= form.text_area :car_type %>
+    <% @car.errors.full_messages_for(:car_type).each do |message| %>
+        <div><%= message %></div>
+    <% end %> 
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.radio_button :color, "red", checked: true %>
+    <%= form.label :color, "Red" %>
+    <%= form.radio_button :color, "yellow" %>
+    <%= form.label :color, "Yellow" %>
+    <%= form.radio_button :color, "blue" %>
+    <%= form.label :color, "Blue" %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.collection_check_boxes :driver_ids, Driver.all, :id, :name %>
+  </div>
+     
+  <br>
+
+  <div>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <br>
+
+  <div>
+    <% @car.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %> 
+    <% @car.errors.full_messages_for(:color).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+    <% @car.errors.full_messages_for(:color).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <br>
+  
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
